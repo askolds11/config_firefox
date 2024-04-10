@@ -24,7 +24,7 @@
 //user_pref("privacy.trackingprotection.enabled", true); // enabled with "Strict"
 //user_pref("privacy.trackingprotection.pbmode.enabled", true); // DEFAULT
 //user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", false); // DEFAULT
-user_pref("browser.contentblocking.category", "strict");
+u//ser_pref("browser.contentblocking.category", "strict");
 //user_pref("privacy.trackingprotection.socialtracking.enabled", true); // enabled with "Strict"
     //user_pref("privacy.socialtracking.block_cookies.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.cryptomining.enabled", true); // DEFAULT
@@ -405,9 +405,8 @@ user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 // Firefox only saves session data when the state has changed since the last save [2].
 // Work has been done to mitigate potential performance drawbacks of frequent session saving [3].
 // [1] https://kb.mozillazine.org/Browser.sessionstore.interval
-// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1304389#c64
-// [3] https://bugzilla.mozilla.org/show_bug.cgi?id=1304389#c66
-user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (15s); 900000=15 min; 1800000=30 min
+// [2] https://bugzilla.mozilla.org/1304389
+//user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (15s)
 
 // PREF: store extra session data when crashing or restarting to install updates
 // Dictates whether sites may save extra session data such as form content,
@@ -564,7 +563,7 @@ user_pref("security.insecure_connection_text.pbmode.enabled", true);
 
 // PREF: enable seperate search engine for Private Windows
 // [SETTINGS] Preferences>Search>Default Search Engine>"Use this search engine in Private Windows"
-user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
+//user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 // [SETTINGS] "Choose a different default search engine for Private Windows only"
     //user_pref("browser.search.separatePrivateDefault", true); // DEFAULT
 
@@ -573,14 +572,14 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 // [EXAMPLE] https://search.brave.com/search?q=%s
 // [EXAMPLE] https://lite.duckduckgo.com/lite/?q=%s
 // [1] https://reddit.com/r/firefox/comments/xkzswb/adding_firefox_search_engine_manually/
-user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
+//user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
 
 // PREF: disable live search suggestions (Google, Bing, etc.)
 // [WARNING] Search engines keylog every character you type from the URL bar.
 // Override these if you trust and use a privacy respecting search engine.
 // [NOTE] Both prefs must be true for live search to work in the location bar.
 // [SETTING] Search>Provide search suggestions > Show search suggestions in address bar result
-user_pref("browser.search.suggest.enabled", false);
+//user_pref("browser.search.suggest.enabled", false);
     //user_pref("browser.search.suggest.enabled.private", false); // DEFAULT
 
 // PREF: disable Show recent searches
@@ -601,7 +600,7 @@ user_pref("browser.urlbar.groupLabels.enabled", false);
 // [SETTING] Privacy & Security>History>Custom Settings>Remember search and form history
 // [1] https://blog.mindedsecurity.com/2011/10/autocompleteagain.html
 // [2] https://bugzilla.mozilla.org/381681
-user_pref("browser.formfill.enable", false);
+//user_pref("browser.formfill.enable", false);
 
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
@@ -649,9 +648,9 @@ user_pref("network.IDN_show_punycode", true);
 // [4] https://web.dev/why-https-matters/
 // [5] https://www.cloudflare.com/learning/ssl/why-use-https/
 // [6] https://blog.chromium.org/2023/08/towards-https-by-default.html
-user_pref("dom.security.https_first", true); // [DEFAULT FF129+]
+//user_pref("dom.security.https_first", true); // [DEFAULT FF129+]
 //user_pref("dom.security.https_first_pbm", true); // [DEFAULT FF91+]
-//user_pref("dom.security.https_first_schemeless", true); // [FF120+] [DEFAULT FF129+]
+////user_pref("dom.security.https_first_schemeless", true); // [FF120+] [DEFAULT FF129+]
 
 /******************************************************************************
  * SECTION: HTTPS-ONLY MODE                              *
@@ -680,7 +679,7 @@ user_pref("dom.security.https_first", true); // [DEFAULT FF129+]
 
 // PREF: offer suggestion for HTTPS site when available
 // [1] https://x.com/leli_gibts_scho/status/1371463866606059528
-//user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
+////user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: HTTP background requests in HTTPS-only Mode
 // When attempting to upgrade, if the server doesn't respond within 3 seconds[=default time],
@@ -881,7 +880,7 @@ user_pref("signon.privateBrowsingCapture.enabled", false);
 // 1=don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
 // 2=allow sub-resources to open HTTP authentication credentials dialogs (default)
 // [1] https://www.fxsitecompat.com/en-CA/docs/2015/http-auth-dialog-can-no-longer-be-triggered-by-cross-origin-resources/
-user_pref("network.auth.subresource-http-auth-allow", 1);
+//user_pref("network.auth.subresource-http-auth-allow", 1);
 
 // PREF: prevent password truncation when submitting form data
 // [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
@@ -915,7 +914,7 @@ user_pref("editor.truncate_user_pastes", false);
 // Disable this pref if using HTTPS-Only Mode.
 // [NOTE] Enterprise users may need to enable this setting [1].
 // [1] https://blog.mozilla.org/security/2024/06/05/firefox-will-upgrade-more-mixed-content-in-version-127/
-user_pref("security.mixed_content.block_display_content", true);
+//user_pref("security.mixed_content.block_display_content", true);
 
 // PREF: allow PDFs to load javascript
 // https://www.reddit.com/r/uBlockOrigin/comments/mulc86/firefox_88_now_supports_javascript_in_pdf_files/
@@ -1019,7 +1018,7 @@ user_pref("extensions.enabledScopes", 5); // [HIDDEN PREF]
 // [1] https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/
 // [2] https://web.dev/referrer-best-practices/
 // [3] https://www.reddit.com/r/waterfox/comments/16px8yq/comment/k29r6bu/?context=3
-user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+//user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /******************************************************************************
  * SECTION: CONTAINERS                                                       *
@@ -1063,13 +1062,13 @@ user_pref("privacy.userContext.ui.enabled", true);
 //user_pref("privacy.webrtc.globalMuteToggles", true);
 
 // PREF: force WebRTC inside the proxy [FF70+]
-//user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
+////user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 
 // PREF: force a single network interface for ICE candidates generation [FF42+]
 // When using a system-wide proxy, it uses the proxy interface.
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate
 // [2] https://wiki.mozilla.org/Media/WebRTC/Privacy
-// [3] https://github.com/zen-browser/desktop/issues/972
+//// [3] https://github.com/zen-browser/desktop/issues/972
 //user_pref("media.peerconnection.ice.default_address_only", true);
 
 // PREF: force exclusion of private IPs from ICE candidates [FF51+]
@@ -1197,7 +1196,7 @@ user_pref("privacy.userContext.ui.enabled", true);
 // file, including the name, origin, size and a cryptographic hash of the contents, to the Google
 // Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
 // [NOTE] If you do not understand the consequences, override this.
-user_pref("browser.safebrowsing.downloads.remote.enabled", false);
+//user_pref("browser.safebrowsing.downloads.remote.enabled", false);
       //user_pref("browser.safebrowsing.downloads.remote.url", "");
 // disable SB checks for unwanted software
 // [SETTING] Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
@@ -1241,7 +1240,7 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 // [2] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_how-do-i-remove-firefox-view-from-the-tabs-bar
 
 // PREF: disable the Firefox View tour from popping up
-//user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
+user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
 
 // PREF: disable Push Notifications API [FF44+]
 // [WHY] Website "push" requires subscription, and the API is required for CRLite.
@@ -1306,7 +1305,7 @@ user_pref("permissions.default.geo", 2);
 //user_pref("permissions.manager.defaultsUrl", "");
 
 // PREF: remove webchannel whitelist
-user_pref("webchannel.allowObject.urlWhitelist", "");
+//user_pref("webchannel.allowObject.urlWhitelist", "");
 
 /******************************************************************************
  * SECTION: TELEMETRY                                                   *
@@ -1368,12 +1367,12 @@ user_pref("app.normandy.api_url", "");
 
 // PREF: disable crash reports
 user_pref("breakpad.reportURL", "");
-user_pref("browser.tabs.crashReporting.sendReport", false);
+// user_pref("browser.tabs.crashReporting.sendReport", false);
     //user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // DEFAULT
 
 // PREF: enforce no submission of backlogged crash reports
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send backlogged crash reports
-user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+// user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
 /******************************************************************************
  * SECTION: DETECTION                                                        *
@@ -1388,7 +1387,7 @@ user_pref("network.captive-portal-service.enabled", false);
 // PREF: disable Network Connectivity checks
 // [WARNING] Do NOT use for mobile devices. May NOT be able to use Firefox on public wifi (hotels, coffee shops, etc).
 // [1] https://bugzilla.mozilla.org/1460537
-user_pref("network.connectivity-service.enabled", false);
+// user_pref("network.connectivity-service.enabled", false);
 
 // PREF: disable Privacy-Preserving Attribution [FF128+]
 // [NOTE] PPA disabled if main telemetry switches are disabled.

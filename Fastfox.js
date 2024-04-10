@@ -19,8 +19,8 @@
 // [2] https://docs.google.com/document/d/1BvCoZzk2_rNZx3u9ESPoFjSADRI0zIPeJRXFLwWXx_4/edit#heading=h.28ki6m8dg30z
 // [3] https://old.reddit.com/r/firefox/comments/o0xl1q/reducing_cpu_usage_of_dark_reader_extension/
 // [4] https://reddit.com/r/browsers/s/wvNB7UVCpx
-//user_pref("nglayout.initialpaint.delay", 5); // DEFAULT; formerly 250
-    //user_pref("nglayout.initialpaint.delay_in_oopif", 5); // DEFAULT
+user_pref("nglayout.initialpaint.delay", 50); // DEFAULT = 5; formerly 250
+user_pref("nglayout.initialpaint.delay_in_oopif", 50); // DEFAULT = 5
 
 // PREF: page reflow timer
 // Rather than wait until a page has completely downloaded to display it to the user,
@@ -88,9 +88,9 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [3] https://www.reddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
 // [4] https://www.reddit.com/r/firefox/comments/z5auzi/comment/ixw65gb?context=3
 // [5] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db?permalink_comment_id=4532937#gistcomment-4532937
-//user_pref("gfx.webrender.all", true); // enables WR + additional features
+user_pref("gfx.webrender.all", true); // enables WR + additional features
 //user_pref("gfx.webrender.precache-shaders", true); // longer initial startup time
-//user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS macOS
+user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS macOS
     //user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
@@ -106,10 +106,10 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
-//user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatible with WINDOWS integrated GPUs
-    user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; Chrome=4096
-    user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; Chrome=512
-    user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
+user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatible with WINDOWS integrated GPUs
+user_pref("gfx.canvas.accelerated.cache-items", 8192); // default=2048; alt=8192
+user_pref("gfx.canvas.accelerated.cache-size", 1024); // default=256; alt=1024
+user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
     // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
 
 // PREF: prefer GPU over CPU
@@ -123,6 +123,11 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
     //user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
 //user_pref("media.gpu-process-decoder", true); // DEFAULT WINDOWS
 //user_pref("media.ffmpeg.vaapi.enabled", true); // LINUX
+
+// PREF: disable AV1 for hardware decodeable videos
+// Firefox sometimes uses AV1 video decoding even to GPUs which do not support it.
+// [1] https://www.reddit.com/r/AV1/comments/s5xyph/youtube_av1_codec_have_worse_quality_than_old_vp9
+user_pref("media.av1.enabled", false);
 
 // PREF: hardware and software decoded video overlay [FF116+]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1829063
@@ -142,7 +147,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // More efficient to keep the browser cache instead of having to
 // re-download objects for the websites you visit frequently.
 // [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
-//user_pref("browser.cache.disk.enable", true); // DEFAULT
+user_pref("browser.cache.disk.enable", false); // DEFAULT
 
 // PREF: disk cache size
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968106,968101
@@ -256,8 +261,8 @@ user_pref("browser.cache.jsbc_compression_level", 3);
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
 // [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
-//user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 256000=256 MB; 512000=500 MB; 1048576=1GB, 2097152=2GB
-//user_pref("browser.cache.memory.max_entry_size", 10240); // (10 MB); default=5120 (5 MB)
+user_pref("browser.cache.memory.capacity", 4194304); // DEFAULT; 256000=256 MB; 512000=500 MB; 1048576=1GB, 2097152=2GB
+user_pref("browser.cache.memory.max_entry_size", 10240); // (10 MB); default=5120 (5 MB)
 
 // PREF: amount of Back/Forward cached pages stored in memory for each tab
 // Pages that were recently visited are stored in memory in such a way
@@ -275,12 +280,12 @@ user_pref("browser.cache.jsbc_compression_level", 3);
 ****************************************************************************/
 
 // PREF: media disk cache
-//user_pref("media.cache_size", 512000); // DEFAULT
+user_pref("media.cache_size", 2048000); // DEFAULT
 
 // PREF: media memory cache
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
 // [2] https://github.com/arkenfox/user.js/pull/941
-user_pref("media.memory_cache_max_size", 65536); // default=8192; AF=65536; alt=131072
+user_pref("media.memory_cache_max_size", 1048576); // default=8192; AF=65536; alt=131072
 //user_pref("media.memory_caches_combined_limit_kb", 524288); // DEFAULT; alt=1048576
 //user_pref("media.memory_caches_combined_limit_pc_sysmem", 5); // DEFAULT; alt=10; the percentage of system memory that Firefox can use for media caches
 
@@ -295,16 +300,16 @@ user_pref("media.memory_cache_max_size", 65536); // default=8192; AF=65536; alt=
 // PREF: adjust video buffering periods when not using MSE (in seconds)
 // [NOTE] Does not affect videos over 720p since they use DASH playback [1]
 // [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
-user_pref("media.cache_readahead_limit", 7200); // 120 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
-user_pref("media.cache_resume_threshold", 3600); // 60 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
+user_pref("media.cache_readahead_limit", 300); // 120 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+user_pref("media.cache_resume_threshold", 150); // 60 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
 
 /****************************************************************************
  * SECTION: IMAGE CACHE                                                     *
 ****************************************************************************/
 
 // PREF: image cache
-//user_pref("image.cache.size", 5242880); // DEFAULT; in MiB; alt=10485760 (cache images up to 10MiB in size)
-user_pref("image.mem.decode_bytes_at_a_time", 32768); // default=16384; alt=65536; chunk size for calls to the image decoders
+user_pref("image.cache.size", 10485760); // DEFAULT; in MiB; alt=10485760 (cache images up to 10MiB in size)
+user_pref("image.mem.decode_bytes_at_a_time", 131072); // default=16384; alt=65536; chunk size for calls to the image decoders
 
 // PREF: set minimum timeout to unmap shared surfaces since they have been last used
 // This is only used on 32-bit builds of Firefox where there is meaningful
@@ -407,18 +412,8 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
-// [5] https://bugzilla.mozilla.org/show_bug.cgi?id=1596935#c28
-user_pref("network.dns.disablePrefetch", true);
-    user_pref("network.dns.disablePrefetchFromHTTPS", true); // [FF127+ false]
-
-// PREF:  DNS prefetch for HTMLAnchorElement (speculative DNS)
-// Disable speculative DNS calls to prevent Firefox from resolving
-// hostnames for other domains linked on a page. This may eliminate
-// unnecessary DNS lookups, but can increase latency when following external links.
-// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1596935#c28
-// [2] https://github.com/arkenfox/user.js/issues/1870#issuecomment-2220773972
-//user_pref("dom.prefetch_dns_for_anchor_http_document", false); // [FF128+]
-//user_pref("dom.prefetch_dns_for_anchor_https_document", false); // DEFAULT [FF128+]
+// user_pref("network.dns.disablePrefetch", true);
+//user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
 
 // PREF: enable <link rel="preconnect"> tag and Link: rel=preconnect response header handling
 //user_pref("network.preconnect", true); // DEFAULT
@@ -464,7 +459,7 @@ user_pref("network.dns.disablePrefetch", true);
 // [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
 // [4] https://3perf.com/blog/link-rels/#prefetch
 // [5] https://developer.mozilla.org/docs/Web/HTTP/Link_prefetching_FAQ
-user_pref("network.prefetch-next", false);
+// user_pref("network.prefetch-next", false);
 
 // PREF: Fetch Priority API [FF119+]
 // Indicates whether the `fetchpriority` attribute for elements which support it.
@@ -499,7 +494,7 @@ user_pref("network.prefetch-next", false);
 // [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
-user_pref("network.predictor.enabled", false);
+// user_pref("network.predictor.enabled", false);
 
 // PREF: Network Predictor fetch for resources ahead of time
 // Prefetch page resources based on past user behavior.
