@@ -19,8 +19,8 @@
 // [2] https://docs.google.com/document/d/1BvCoZzk2_rNZx3u9ESPoFjSADRI0zIPeJRXFLwWXx_4/edit#heading=h.28ki6m8dg30z
 // [3] https://old.reddit.com/r/firefox/comments/o0xl1q/reducing_cpu_usage_of_dark_reader_extension/
 // [4] https://reddit.com/r/browsers/s/wvNB7UVCpx
-//user_pref("nglayout.initialpaint.delay", 5); // DEFAULT; formerly 250
-    //user_pref("nglayout.initialpaint.delay_in_oopif", 5); // DEFAULT
+user_pref("nglayout.initialpaint.delay", 50); // DEFAULT = 5; formerly 250
+user_pref("nglayout.initialpaint.delay_in_oopif", 50); // DEFAULT = 5
 
 // PREF: page reflow timer
 // Rather than wait until a page has completely downloaded to display it to the user,
@@ -88,9 +88,9 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [3] https://www.reddit.com/r/firefox/comments/tbphok/is_setting_gfxwebrenderprecacheshaders_to_true/i0bxs2r/
 // [4] https://www.reddit.com/r/firefox/comments/z5auzi/comment/ixw65gb?context=3
 // [5] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db?permalink_comment_id=4532937#gistcomment-4532937
-//user_pref("gfx.webrender.all", true); // enables WR + additional features
+user_pref("gfx.webrender.all", true); // enables WR + additional features
 //user_pref("gfx.webrender.precache-shaders", true); // longer initial startup time
-//user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS macOS
+user_pref("gfx.webrender.compositor", true); // DEFAULT WINDOWS macOS
     //user_pref("gfx.webrender.compositor.force-enabled", true); // enforce
 
 // PREF: if your hardware doesn't support Webrender, you can fallback to Webrender's software renderer
@@ -114,10 +114,10 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1741501
 // [2] https://github.com/yokoffing/Betterfox/issues/153
 // [3] https://github.com/yokoffing/Betterfox/issues/198
-//user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatible with WINDOWS integrated GPUs
-    user_pref("gfx.canvas.accelerated.cache-items", 4096); // default=2048; alt=8192
-    user_pref("gfx.canvas.accelerated.cache-size", 512); // default=256; alt=1024
-    user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
+user_pref("gfx.canvas.accelerated", true); // DEFAULT macOS LINUX [FF110]; not compatible with WINDOWS integrated GPUs
+user_pref("gfx.canvas.accelerated.cache-items", 8192); // default=2048; alt=8192
+user_pref("gfx.canvas.accelerated.cache-size", 1024); // default=256; alt=1024
+user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
     // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1239151#c2
 
 // PREF: prefer GPU over CPU
@@ -135,7 +135,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // PREF: disable AV1 for hardware decodeable videos
 // Firefox sometimes uses AV1 video decoding even to GPUs which do not support it.
 // [1] https://www.reddit.com/r/AV1/comments/s5xyph/youtube_av1_codec_have_worse_quality_than_old_vp9
-//user_pref("media.av1.enabled", false);
+user_pref("media.av1.enabled", false);
 
 // PREF: hardware and software decoded video overlay [FF116+]
 // [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1829063
@@ -155,7 +155,7 @@ user_pref("content.notify.interval", 100000); // (.10s); default=120000 (.12s)
 // More efficient to keep the browser cache instead of having to
 // re-download objects for the websites you visit frequently.
 // [1] https://www.janbambas.cz/new-firefox-http-cache-enabled/
-//user_pref("browser.cache.disk.enable", true); // DEFAULT
+user_pref("browser.cache.disk.enable", false); // DEFAULT
 
 // PREF: disk cache size
 // [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=913808,968106,968101
@@ -247,8 +247,8 @@ user_pref("browser.cache.jsbc_compression_level", 3);
 // [1] https://kb.mozillazine.org/Browser.cache.memory.capacity#-1
 // [2] https://searchfox.org/mozilla-central/source/netwerk/cache2/CacheObserver.cpp#94-125
 // [3] https://github.com/WaterfoxCo/Waterfox/commit/3fed16932c80a2f6b37d126fe10aed66c7f1c214
-//user_pref("browser.cache.memory.capacity", -1); // DEFAULT; 256000=256 MB; 512000=500 MB; 1048576=1GB, 2097152=2GB
-//user_pref("browser.cache.memory.max_entry_size", 10240); // (10 MB); default=5120 (5 MB)
+user_pref("browser.cache.memory.capacity", 4194304); // DEFAULT; 256000=256 MB; 512000=500 MB; 1048576=1GB, 2097152=2GB
+user_pref("browser.cache.memory.max_entry_size", 10240); // (10 MB); default=5120 (5 MB)
 
 // PREF: amount of Back/Forward cached pages stored in memory for each tab
 // Pages that were recently visited are stored in memory in such a way
@@ -266,12 +266,12 @@ user_pref("browser.cache.jsbc_compression_level", 3);
 ****************************************************************************/
 
 // PREF: media disk cache
-//user_pref("media.cache_size", 512000); // DEFAULT
+user_pref("media.cache_size", 2048000); // DEFAULT
 
 // PREF: media memory cache
 // [1] https://hg.mozilla.org/mozilla-central/file/tip/modules/libpref/init/StaticPrefList.yaml#l9652
 // [2] https://github.com/arkenfox/user.js/pull/941
-user_pref("media.memory_cache_max_size", 65536); // default=8192; AF=65536; alt=131072
+user_pref("media.memory_cache_max_size", 1048576); // default=8192; AF=65536; alt=131072
 //user_pref("media.memory_caches_combined_limit_kb", 524288); // DEFAULT; alt=1048576
 //user_pref("media.memory_caches_combined_limit_pc_sysmem", 5); // DEFAULT; alt=10; the percentage of system memory that Firefox can use for media caches
 
@@ -286,16 +286,16 @@ user_pref("media.memory_cache_max_size", 65536); // default=8192; AF=65536; alt=
 // PREF: adjust video buffering periods when not using MSE (in seconds)
 // [NOTE] Does not affect videos over 720p since they use DASH playback [1]
 // [1] https://lifehacker.com/preload-entire-youtube-videos-by-disabling-dash-playbac-1186454034
-user_pref("media.cache_readahead_limit", 7200); // 120 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
-user_pref("media.cache_resume_threshold", 3600); // 60 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
+user_pref("media.cache_readahead_limit", 300); // 120 min; default=60; stop reading ahead when our buffered data is this many seconds ahead of the current playback
+user_pref("media.cache_resume_threshold", 150); // 60 min; default=30; when a network connection is suspended, don't resume it until the amount of buffered data falls below this threshold
 
 /****************************************************************************
  * SECTION: IMAGE CACHE                                                     *
 ****************************************************************************/
 
 // PREF: image cache
-//user_pref("image.cache.size", 5242880); // DEFAULT; in MiB; alt=10485760 (cache images up to 10MiB in size)
-user_pref("image.mem.decode_bytes_at_a_time", 32768); // default=16384; alt=65536; chunk size for calls to the image decoders
+user_pref("image.cache.size", 10485760); // DEFAULT; in MiB; alt=10485760 (cache images up to 10MiB in size)
+user_pref("image.mem.decode_bytes_at_a_time", 131072); // default=16384; alt=65536; chunk size for calls to the image decoders
 
 // PREF: set minimum timeout to unmap shared surfaces since they have been last used
 // This is only used on 32-bit builds of Firefox where there is meaningful
@@ -399,7 +399,7 @@ user_pref("network.ssl_tokens_cache_capacity", 10240); // default=2048; more TLS
 // [2] https://css-tricks.com/prefetching-preloading-prebrowsing/#dns-prefetching
 // [3] https://www.keycdn.com/blog/resource-hints#2-dns-prefetching
 // [4] http://www.mecs-press.org/ijieeb/ijieeb-v7-n5/IJIEEB-V7-N5-2.pdf
-user_pref("network.dns.disablePrefetch", true);
+// user_pref("network.dns.disablePrefetch", true);
 //user_pref("network.dns.disablePrefetchFromHTTPS", true); // DEFAULT
 
 // PREF: enable <link rel="preconnect"> tag and Link: rel=preconnect response header handling
@@ -464,7 +464,7 @@ user_pref("network.dns.disablePrefetch", true);
 // [3] https://timkadlec.com/remembers/2020-06-17-prefetching-at-this-age/
 // [4] https://3perf.com/blog/link-rels/#prefetch
 // [5] https://developer.mozilla.org/docs/Web/HTTP/Link_prefetching_FAQ
-user_pref("network.prefetch-next", false);
+// user_pref("network.prefetch-next", false);
 
 // PREF: Fetch Priority API [FF119+]
 // Indicates whether the `fetchpriority` attribute for elements which support it.
@@ -499,7 +499,7 @@ user_pref("network.prefetch-next", false);
 // [2] https://www.ghacks.net/2014/05/11/seer-disable-firefox/
 // [3] https://github.com/dillbyrne/random-agent-spoofer/issues/238#issuecomment-110214518
 // [4] https://www.igvita.com/posa/high-performance-networking-in-google-chrome/#predictor
-user_pref("network.predictor.enabled", false);
+// user_pref("network.predictor.enabled", false);
 
 // PREF: Network Predictor fetch for resources ahead of time
 // Prefetch page resources based on past user behavior.
@@ -741,13 +741,13 @@ user_pref("browser.display.focus_ring_width", 0);
 // Before FF95, the pref was 2, which determined site color based on OS theme.
 // Dark (0), Light (1), System (2), Browser (3) [DEFAULT FF95+]
 // [1] https://www.reddit.com/r/firefox/comments/rfj6yc/how_to_stop_firefoxs_dark_theme_from_overriding/hoe82i5/?context=3
-user_pref("layout.css.prefers-color-scheme.content-override", 2);
+// user_pref("layout.css.prefers-color-scheme.content-override", 2);
 
 // PREF: disable always using dark theme for private browsing windows [FF106+]
 //user_pref("browser.theme.dark-private-windows", false);
 
 // PREF: prevent private windows being separate from normal windows in taskbar [WINDOWS] [FF106+]
-user_pref("browser.privateWindowSeparation.enabled", false);
+// user_pref("browser.privateWindowSeparation.enabled", false);
 
 // PREF: reduce the size of the "private window" indicator in tab bar [FF106+]
 //user_pref("browser.privatebrowsing.enable-new-indicator", false); // REMOVED [FF119+]
@@ -838,7 +838,7 @@ user_pref("full-screen-api.warning.timeout", 0); // default=3000
 //user_pref("browser.urlbar.suggest.bookmark", true); // DEFAULT
 //user_pref("browser.urlbar.suggest.clipboard", false);
 //user_pref("browser.urlbar.suggest.openpage", false);
-user_pref("browser.urlbar.suggest.engines", false);
+// user_pref("browser.urlbar.suggest.engines", false);
     //user_pref("browser.urlbar.suggest.searches", false);
 //user_pref("browser.urlbar.quickactions.enabled", false);
 //user_pref("browser.urlbar.shortcuts.quickactions", false);
@@ -925,7 +925,7 @@ user_pref("browser.urlbar.trending.featureGate", false);
 // [1] https://github.com/arkenfox/user.js/issues/1556
 //user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
-user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
+//user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
       //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Sponsored shortcuts [FF83+]
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
       //user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
@@ -989,7 +989,7 @@ user_pref("browser.download.always_ask_before_handling_new_types", true);
     //user_pref("browser.download.dir", "C:\Users\<YOUR_USERNAME>\AppData\Local\Temp"); // [WINDOWS]
 
 // PREF: autohide the downloads button
-//user_pref("browser.download.autohideButton", true); // DEFAULT
+user_pref("browser.download.autohideButton", false); // DEFAULT
 
 // PREF: disable download panel opening on every download [non-functional?]
 // Controls whether to open the download panel every time a download begins.
@@ -1127,10 +1127,10 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // PREF: controls if a double-click word selection also deletes one adjacent whitespace
 // This mimics native behavior on macOS.
-//user_pref("editor.word_select.delete_space_after_doubleclick_selection", true);
+user_pref("editor.word_select.delete_space_after_doubleclick_selection", true);
 
 // PREF: do not hide the pointer while typing [LINUX]
-//user_pref("widget.gtk.hide-pointer-while-typing.enabled", false);
+user_pref("widget.gtk.hide-pointer-while-typing.enabled", false);
 
 // PREF: limit events that can cause a pop-up
 // Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
@@ -1141,7 +1141,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 //user_pref("privacy.popups.showBrowserMessage", true); // DEFAULT
 
 // PREF: enable Tab Preview [FF122+]
-//user_pref("browser.tabs.cardPreview.enabled", true);
+user_pref("browser.tabs.cardPreview.enabled", true);
 
 /****************************************************************************
  * SECTION: UNCATEGORIZED                                                   *
@@ -1159,7 +1159,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 //user_pref("reader.parse-on-load.enabled", false);
 
 // PREF: disable ALT key toggling the menu bar
-//user_pref("ui.key.menuAccessKeyFocuses", false);
+user_pref("ui.key.menuAccessKeyFocuses", false);
     //user_pref("ui.key.menuAccessKey", 18); // DEFAULT
 
 // PREF: cycle through tabs in recently used order
@@ -1261,7 +1261,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 //user_pref("privacy.trackingprotection.enabled", true); // enabled with "Strict"
 //user_pref("privacy.trackingprotection.pbmode.enabled", true); // DEFAULT
 //user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", false); // DEFAULT
-user_pref("browser.contentblocking.category", "strict");
+u//ser_pref("browser.contentblocking.category", "strict");
 //user_pref("privacy.trackingprotection.socialtracking.enabled", true); // enabled with "Strict"
     //user_pref("privacy.socialtracking.block_cookies.enabled", true); // DEFAULT
 //user_pref("privacy.trackingprotection.cryptomining.enabled", true); // DEFAULT
@@ -1629,7 +1629,7 @@ user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
 // Data is only saved when state changes [2].
 // [1] https://kb.mozillazine.org/Browser.sessionstore.interval
 // [2] https://bugzilla.mozilla.org/1304389
-user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (15s)
+//user_pref("browser.sessionstore.interval", 60000); // 1 minute; default=15000 (15s)
 
 // PREF: store extra session data when crashing or restarting to install updates
 // Dictates whether sites may save extra session data such as form content,
@@ -1750,7 +1750,7 @@ user_pref("security.insecure_connection_text.pbmode.enabled", true);
 
 // PREF: enable seperate search engine for Private Windows
 // [SETTINGS] Preferences>Search>Default Search Engine>"Use this search engine in Private Windows"
-user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
+//user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 // [SETTINGS] "Choose a different default search engine for Private Windows only"
 //user_pref("browser.search.separatePrivateDefault", true); // DEFAULT
 // enable prompt for searching in a Private Window when using normal browsing window URL bar
@@ -1762,11 +1762,11 @@ user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 // [EXAMPLE] https://search.brave.com/search?q=%s
 // [EXAMPLE] https://lite.duckduckgo.com/lite/?q=%s
 // [1] https://reddit.com/r/firefox/comments/xkzswb/adding_firefox_search_engine_manually/
-user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
+//user_pref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
 
 // PREF: disable urlbar live search engine suggestions (Google, Bing, etc.)
 // [WARNING] Search engines keylog every character you type from the URL bar.
-user_pref("browser.search.suggest.enabled", false);
+//user_pref("browser.search.suggest.enabled", false);
 //user_pref("browser.search.suggest.enabled.private", false); // DEFAULT
 
 // PREF: disable Firefox Suggest
@@ -1783,7 +1783,7 @@ user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 // [SETTING] Privacy & Security>History>Custom Settings>Remember search and form history
 // [1] https://blog.mindedsecurity.com/2011/10/autocompleteagain.html
 // [2] https://bugzilla.mozilla.org/381681
-user_pref("browser.formfill.enable", false);
+//user_pref("browser.formfill.enable", false);
 
 // PREF: URL bar domain guessing
 // Domain guessing intercepts DNS "hostname not found errors" and resends a
@@ -1831,9 +1831,9 @@ user_pref("network.IDN_show_punycode", true);
 // [4] https://web.dev/why-https-matters/
 // [5] https://www.cloudflare.com/learning/ssl/why-use-https/
 // [6] https://blog.chromium.org/2023/08/towards-https-by-default.html
-user_pref("dom.security.https_first", true);
+//user_pref("dom.security.https_first", true);
 //user_pref("dom.security.https_first_pbm", true); // DEFAULT
-user_pref("dom.security.https_first_schemeless", true); // [FF120+]
+//user_pref("dom.security.https_first_schemeless", true); // [FF120+]
 
 /******************************************************************************
  * SECTION: HTTPS-ONLY MODE                              *
@@ -1863,7 +1863,7 @@ user_pref("dom.security.https_first_schemeless", true); // [FF120+]
 // PREF: offer suggestion for HTTPS site when available
 // [1] https://twitter.com/leli_gibts_scho/status/1371463866606059528
 // [TEST] http://speedofanimals.com/
-user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
+//user_pref("dom.security.https_only_mode_error_page_user_suggestions", true);
 
 // PREF: HTTP background requests in HTTPS-only Mode
 // When attempting to upgrade, if the server doesn't respond within 3 seconds[=default time],
@@ -2059,7 +2059,7 @@ user_pref("signon.privateBrowsingCapture.enabled", false);
 // 1=don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
 // 2=allow sub-resources to open HTTP authentication credentials dialogs (default)
 // [1] https://www.fxsitecompat.com/en-CA/docs/2015/http-auth-dialog-can-no-longer-be-triggered-by-cross-origin-resources/
-user_pref("network.auth.subresource-http-auth-allow", 1);
+//user_pref("network.auth.subresource-http-auth-allow", 1);
 
 // PREF: prevent password truncation when submitting form data
 // [1] https://www.ghacks.net/2020/05/18/firefox-77-wont-truncate-text-exceeding-max-length-to-address-password-pasting-issues/
@@ -2101,14 +2101,14 @@ user_pref("editor.truncate_user_pastes", false);
 // There's the small chance that someone does a MITM on the images
 // and deploys a malicious image. (They're rare, but possible).
 // [NOTE] You can remove if using HTTPS-Only Mode.
-user_pref("security.mixed_content.block_display_content", true);
+//user_pref("security.mixed_content.block_display_content", true);
 
 // PREF: upgrade passive content to use HTTPS on secure pages
 // [NOTE] You can remove if using HTTPS-Only Mode.
-user_pref("security.mixed_content.upgrade_display_content", true);
+//user_pref("security.mixed_content.upgrade_display_content", true);
 // [FF119+]:
 //user_pref("security.mixed_content.upgrade_display_content.audio", true); // DEFAULT
-user_pref("security.mixed_content.upgrade_display_content.image", true);
+//user_pref("security.mixed_content.upgrade_display_content.image", true);
 //user_pref("security.mixed_content.upgrade_display_content.video", true); // DEFAULT
 
 // PREF: block insecure downloads from secure sites
@@ -2200,7 +2200,7 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 // [1] https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/
 // [2] https://web.dev/referrer-best-practices/
 // [3] https://www.reddit.com/r/waterfox/comments/16px8yq/comment/k29r6bu/?context=3
-user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+//user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 
 /******************************************************************************
  * SECTION: CONTAINERS                                                       *
@@ -2237,13 +2237,13 @@ user_pref("privacy.userContext.ui.enabled", true);
 //user_pref("privacy.webrtc.globalMuteToggles", true);
 
 // PREF: force WebRTC inside the proxy [FF70+]
-user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
+//user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 
 // PREF: force a single network interface for ICE candidates generation [FF42+]
 // When using a system-wide proxy, it uses the proxy interface.
 // [1] https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate
 // [2] https://wiki.mozilla.org/Media/WebRTC/Privacy
-user_pref("media.peerconnection.ice.default_address_only", true);
+//user_pref("media.peerconnection.ice.default_address_only", true);
 
 // PREF: force exclusion of private IPs from ICE candidates [FF51+]
 // [SETUP-HARDEN] This will protect your private IP even in TRUSTED scenarios after you
@@ -2343,7 +2343,7 @@ user_pref("media.peerconnection.ice.default_address_only", true);
 // file, including the name, origin, size and a cryptographic hash of the contents, to the Google
 // Safe Browsing service which helps Firefox determine whether or not the file should be blocked.
 // [NOTE] If you do not understand the consequences, override this.
-user_pref("browser.safebrowsing.downloads.remote.enabled", false);
+//user_pref("browser.safebrowsing.downloads.remote.enabled", false);
       //user_pref("browser.safebrowsing.downloads.remote.url", "");
 // disable SB checks for unwanted software
 // [SETTING] Privacy & Security>Security>... "Warn you about unwanted and uncommon software"
@@ -2381,13 +2381,13 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 
 // PREF: disable Firefox View [FF106+]
 // [1] https://support.mozilla.org/en-US/kb/how-set-tab-pickup-firefox-view#w_what-is-firefox-view
-//user_pref("browser.tabs.firefox-view", false);
+user_pref("browser.tabs.firefox-view", false);
     //user_pref("browser.tabs.firefox-view-next", false); // [FF119+]
     //user_pref("browser.firefox-view.search.enabled", false); // [FF122+]
     //user_pref("browser.firefox-view.virtual-list.enabled", false); // [FF122+]
 
 // PREF: disable the Firefox View tour from popping up
-//user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
+user_pref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}");
 
 // PREF: disable Push Notifications API [FF44+]
 // Push is an API that allows websites to send you (subscribed) messages even when the site
@@ -2412,7 +2412,7 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 
 // PREF: use Mozilla geolocation service instead of Google when geolocation is enabled
-user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
+//user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 
 // PREF: disable using the OS's geolocation service
 //user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
@@ -2451,7 +2451,7 @@ user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/
 //user_pref("permissions.manager.defaultsUrl", "");
 
 // PREF: remove webchannel whitelist
-user_pref("webchannel.allowObject.urlWhitelist", "");
+//user_pref("webchannel.allowObject.urlWhitelist", "");
 
 // PREF: disable mozAddonManager Web API [FF57+]
 // [NOTE] To allow extensions to work on AMO, you also need extensions.webextensions.restrictedDomains.
@@ -2540,12 +2540,12 @@ user_pref("app.normandy.api_url", "");
 
 // PREF: disable crash reports
 user_pref("breakpad.reportURL", "");
-user_pref("browser.tabs.crashReporting.sendReport", false);
+// user_pref("browser.tabs.crashReporting.sendReport", false);
     //user_pref("browser.crashReports.unsubmittedCheck.enabled", false); // DEFAULT
 
 // PREF: enforce no submission of backlogged crash reports
 // [SETTING] Privacy & Security>Firefox Data Collection & Use>Allow Firefox to send backlogged crash reports
-user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+// user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
 /******************************************************************************
  * SECTION: DETECTION                                                        *
@@ -2560,7 +2560,7 @@ user_pref("network.captive-portal-service.enabled", false);
 // PREF: disable Network Connectivity checks
 // [WARNING] Do NOT use for mobile devices. May NOT be able to use Firefox on public wifi (hotels, coffee shops, etc).
 // [1] https://bugzilla.mozilla.org/1460537
-user_pref("network.connectivity-service.enabled", false);
+// user_pref("network.connectivity-service.enabled", false);
 
 // PREF: software that continually reports what default browser you are using [WINDOWS]
 // [WARNING] Breaks "Make Default..." button in Preferences to set Firefox as the default browser [2].
@@ -2613,19 +2613,19 @@ user_pref("network.connectivity-service.enabled", false);
 ****************************************************************************************/
 // credit: https://github.com/black7375/Firefox-UI-Fix
 // only sharpen scrolling
-user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
-user_pref("mousewheel.min_line_scroll_amount", 10); // 10-40; adjust this number to your liking; default=5
-user_pref("general.smoothScroll.mouseWheel.durationMinMS", 80); // default=50
-user_pref("general.smoothScroll.currentVelocityWeighting", "0.15"); // default=.25
-user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6"); // default=.4
+// user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
+// user_pref("mousewheel.min_line_scroll_amount", 10); // 10-40; adjust this number to your liking; default=5
+// user_pref("general.smoothScroll.mouseWheel.durationMinMS", 80); // default=50
+// user_pref("general.smoothScroll.currentVelocityWeighting", "0.15"); // default=.25
+// user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6"); // default=.4
 
 /****************************************************************************************
  * OPTION: INSTANT SCROLLING (SIMPLE ADJUSTMENT)                                       *
 ****************************************************************************************/
 // recommended for 60hz+ displays
-user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
-user_pref("general.smoothScroll", true); // DEFAULT
-user_pref("mousewheel.default.delta_multiplier_y", 275); // 250-400; adjust this number to your liking
+// user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
+// user_pref("general.smoothScroll", true); // DEFAULT
+// user_pref("mousewheel.default.delta_multiplier_y", 275); // 250-400; adjust this number to your liking
 
 /****************************************************************************************
  * OPTION: SMOOTH SCROLLING                                                            *
@@ -2642,15 +2642,15 @@ user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this
 // credit: https://github.com/AveYo/fox/blob/cf56d1194f4e5958169f9cf335cd175daa48d349/Natural%20Smooth%20Scrolling%20for%20user.js
 // recommended for 120hz+ displays
 // largely matches Chrome flags: Windows Scrolling Personality and Smooth Scrolling
-user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
-user_pref("general.smoothScroll", true); // DEFAULT
-user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
-user_pref("general.smoothScroll.msdPhysics.enabled", true);
-user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 600);
-user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 650);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 2.0);
-user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 250);
-user_pref("general.smoothScroll.currentVelocityWeighting", 1.0);
-user_pref("general.smoothScroll.stopDecelerationWeighting", 1.0);
-user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this number to your liking
+// user_pref("apz.overscroll.enabled", true); // DEFAULT NON-LINUX
+// user_pref("general.smoothScroll", true); // DEFAULT
+// user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 12);
+// user_pref("general.smoothScroll.msdPhysics.enabled", true);
+// user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 600);
+// user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 650);
+// user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25);
+// user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 2.0);
+// user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 250);
+// user_pref("general.smoothScroll.currentVelocityWeighting", 1.0);
+// user_pref("general.smoothScroll.stopDecelerationWeighting", 1.0);
+// user_pref("mousewheel.default.delta_multiplier_y", 300); // 250-400; adjust this number to your liking

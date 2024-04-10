@@ -97,13 +97,13 @@ user_pref("browser.display.focus_ring_width", 0);
 // Before FF95, the pref was 2, which determined site color based on OS theme.
 // Dark (0), Light (1), System (2), Browser (3) [DEFAULT FF95+]
 // [1] https://www.reddit.com/r/firefox/comments/rfj6yc/how_to_stop_firefoxs_dark_theme_from_overriding/hoe82i5/?context=3
-user_pref("layout.css.prefers-color-scheme.content-override", 2);
+// user_pref("layout.css.prefers-color-scheme.content-override", 2);
 
 // PREF: disable always using dark theme for private browsing windows [FF106+]
 //user_pref("browser.theme.dark-private-windows", false);
 
 // PREF: prevent private windows being separate from normal windows in taskbar [WINDOWS] [FF106+]
-user_pref("browser.privateWindowSeparation.enabled", false);
+// user_pref("browser.privateWindowSeparation.enabled", false);
 
 // PREF: reduce the size of the "private window" indicator in tab bar [FF106+]
 //user_pref("browser.privatebrowsing.enable-new-indicator", false); // REMOVED [FF119+]
@@ -194,7 +194,7 @@ user_pref("full-screen-api.warning.timeout", 0); // default=3000
 //user_pref("browser.urlbar.suggest.bookmark", true); // DEFAULT
 //user_pref("browser.urlbar.suggest.clipboard", false);
 //user_pref("browser.urlbar.suggest.openpage", false);
-user_pref("browser.urlbar.suggest.engines", false);
+// user_pref("browser.urlbar.suggest.engines", false);
     //user_pref("browser.urlbar.suggest.searches", false);
 //user_pref("browser.urlbar.quickactions.enabled", false);
 //user_pref("browser.urlbar.shortcuts.quickactions", false);
@@ -281,7 +281,7 @@ user_pref("browser.urlbar.trending.featureGate", false);
 // [1] https://github.com/arkenfox/user.js/issues/1556
 //user_pref("browser.newtabpage.activity-stream.discoverystream.enabled", false);
 //user_pref("browser.newtabpage.activity-stream.showSearch", true); // NTP Web Search [DEFAULT]
-user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
+//user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // Shortcuts
       //user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // Sponsored shortcuts [FF83+]
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // Recommended by Pocket
       //user_pref("browser.newtabpage.activity-stream.showSponsored", false); // Sponsored Stories [FF58+]  
@@ -345,7 +345,7 @@ user_pref("browser.download.always_ask_before_handling_new_types", true);
     //user_pref("browser.download.dir", "C:\Users\<YOUR_USERNAME>\AppData\Local\Temp"); // [WINDOWS]
 
 // PREF: autohide the downloads button
-//user_pref("browser.download.autohideButton", true); // DEFAULT
+user_pref("browser.download.autohideButton", false); // DEFAULT
 
 // PREF: disable download panel opening on every download [non-functional?]
 // Controls whether to open the download panel every time a download begins.
@@ -483,10 +483,10 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 
 // PREF: controls if a double-click word selection also deletes one adjacent whitespace
 // This mimics native behavior on macOS.
-//user_pref("editor.word_select.delete_space_after_doubleclick_selection", true);
+user_pref("editor.word_select.delete_space_after_doubleclick_selection", true);
 
 // PREF: do not hide the pointer while typing [LINUX]
-//user_pref("widget.gtk.hide-pointer-while-typing.enabled", false);
+user_pref("widget.gtk.hide-pointer-while-typing.enabled", false);
 
 // PREF: limit events that can cause a pop-up
 // Firefox provides an option to provide exceptions for sites, remembered in your Site Settings.
@@ -497,7 +497,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 //user_pref("privacy.popups.showBrowserMessage", true); // DEFAULT
 
 // PREF: enable Tab Preview [FF122+]
-//user_pref("browser.tabs.cardPreview.enabled", true);
+user_pref("browser.tabs.cardPreview.enabled", true);
 
 /****************************************************************************
  * SECTION: UNCATEGORIZED                                                   *
@@ -515,7 +515,7 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 //user_pref("reader.parse-on-load.enabled", false);
 
 // PREF: disable ALT key toggling the menu bar
-//user_pref("ui.key.menuAccessKeyFocuses", false);
+user_pref("ui.key.menuAccessKeyFocuses", false);
     //user_pref("ui.key.menuAccessKey", 18); // DEFAULT
 
 // PREF: cycle through tabs in recently used order
