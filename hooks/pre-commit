@@ -4,7 +4,3 @@
 
 cat Fastfox.js Peskyfox.js Securefox.js Smoothfox.js Custom.js > user.js
 git add user.js
-git commit --amend --no-edit
-
-
-# Push
