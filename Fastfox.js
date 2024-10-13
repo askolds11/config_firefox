@@ -118,11 +118,11 @@ user_pref("gfx.content.skia-font-cache-size", 20); // default=5; Chrome=20
 // [1] https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#gpu-process
 //user_pref("layers.gpu-process.enabled", true); // DEFAULT WINDOWS
     //user_pref("layers.gpu-process.force-enabled", true); // enforce
-    //user_pref("layers.mlgpu.enabled", true); // LINUX
+user_pref("layers.mlgpu.enabled", true); // LINUX
 //user_pref("media.hardware-video-decoding.enabled", true); // DEFAULT WINDOWS macOS
     //user_pref("media.hardware-video-decoding.force-enabled", true); // enforce
 //user_pref("media.gpu-process-decoder", true); // DEFAULT WINDOWS
-//user_pref("media.ffmpeg.vaapi.enabled", true); // LINUX
+user_pref("media.ffmpeg.vaapi.enabled", true); // LINUX
 
 // PREF: disable AV1 for hardware decodeable videos
 // Firefox sometimes uses AV1 video decoding even to GPUs which do not support it.
@@ -350,7 +350,7 @@ user_pref("network.http.max-persistent-connections-per-server", 10); // default=
 // may provide a small speed boost when loading pages with lots of requests.
 // false=Firefox will send as many requests as possible without pacing
 // true=Firefox will pace requests (default)
-user_pref("network.http.pacing.requests.enabled", false);
+user_pref("network.http.pacing.requests.enabled", true);
     //user_pref("network.http.pacing.requests.min-parallelism", 10); // default=6
     //user_pref("network.http.pacing.requests.burst", 14); // default=10
 
